@@ -1,5 +1,5 @@
 from django.views.generic import TemplateView
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 
 from .models import Campus, Curso, TipoSolicitacao, Status, Aluno, Servidor, Solicitacao, Historico
@@ -22,7 +22,7 @@ class CampusCreate(CreateView):
         'titulo': 'Cadastrar Campus',
         'botao': 'Cadastrar',
     }
-
+ 
 
 class CursoCreate(CreateView):
     model = Curso
@@ -85,8 +85,8 @@ class SolicitacaoCreate(CreateView):
     fields = ['solicitado_por', 'curso', 'turma', 'tipo_solicitação', 'justificativa']
     success_url = reverse_lazy('index')
     extra_context = {
-        'titulo': 'Cadastrar Solicitação',
-        'botao': 'Cadastrar',
+        'titulo': 'Protocolo online da Secretaria',
+        'botao': 'Protocolar',
     }
 
 
@@ -99,3 +99,19 @@ class HistoricoCreate(CreateView):
         'titulo': 'Cadastrar Histórico',
         'botao': 'Cadastrar',
     }
+
+
+##################################################
+
+
+class CampusUpdate(UpdateView):
+    model = Campus
+    template_name = 'paginasweb/form.html'
+    fields = ['nome']
+    success_url = reverse_lazy('index')
+    extra_context = {
+        'titulo': 'Atualização de dados do Campus',
+        'botao': 'Salvar',
+    }
+
+

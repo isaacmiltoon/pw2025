@@ -2,6 +2,8 @@ from django.urls import path
 from .views import IndexView, SobreView
 from .views import CampusCreate, CursoCreate, TipoSolicitacaoCreate, StatusCreate, AlunoCreate, ServidorCreate, SolicitacaoCreate, HistoricoCreate
 
+from .views import CampusUpdate
+
 urlpatterns = [
     
     path('', IndexView.as_view(), name='index'),  # URL para a página inicial
@@ -16,6 +18,6 @@ urlpatterns = [
     path("cadastrar/solicitacao/", SolicitacaoCreate.as_view(), name="cadastrar-solicitacao"),  # URL para criar uma nova solicitação
     path("cadastrar/historico/", HistoricoCreate.as_view(), name="cadastrar-historico"),  # URL para criar um novo histórico
 
-    
+    path("editar/campus/<int:pk>/", CampusUpdate.as_view(), name="editar-campus"),
 
 ]
