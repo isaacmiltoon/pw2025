@@ -15,27 +15,35 @@
 </head>
 <body>
 
-    <h4>Menu Superior</h4>
-    <ul>
-        <li>
-            <a href="{% url "index" %}">Início</a>
-        </li>
-        <li>
-            <a href="{% url "sobre" %}">Sobre nós</a>
-        </li>
+    <ul id="menu">
+        <li><a href="{% url "index" %}">Início</a></li>
+        <li><a href="{% url "sobre" %}">Sobre nós</a></li>
+
+        <li><a href="{% url "cadastrar-campus" %}">Campus</a></li>
+        <li><a href="{% url "cadastrar-curso" %}">Curso</a></li>
+        <li><a href="{% url "cadastrar-tipo-solicitacao" %}">Tipo Solicitação</a></li>
+        <li><a href="{% url "cadastrar-status" %}">Status</a></li>
+        <li><a href="{% url "cadastrar-aluno" %}">Aluno</a></li>
+        <li><a href="{% url "cadastrar-servidor" %}">Servidor</a></li>
+        <li><a href="{% url "cadastrar-solicitacao" %}">Solicitação</a></li>
+        <li><a href="{% url "cadastrar-historico" %}">Histórico</a></li>
+
     </ul>
 
-    {%  block conteudo  %}
-    <h3>Página inicial</h3>
+    <div id="conteudo">
+        {% block conteudo %}
 
-    <p>Bem vindos a página inicial de Programação Web</p>
+        <h3>Página inicial</h3>
+        
+        <p>Bem vindos a página inicial de Programação Web</p>
+        
+        {%  endblock  %}
+    </div>
 
-    {%  endblock  %}
 
-
-    <p>
+    <div id="rodape">
         Desenvolvido por Rafael Zottesso
-    </p>
+    </div>
     
 </body>
 </html>
