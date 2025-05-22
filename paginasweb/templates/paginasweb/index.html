@@ -10,7 +10,15 @@
     <title>Página Inicial</title>
     {% endblock titulo %}
 
-    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+    <!-- Formatação do site com o Claude -- gerado por IA -->
+    {% comment %} 
+    <link rel="stylesheet" href="{% static 'css/estilo_gpt.css' %}">
+    <script src="{% static "js/menu.js" %}"></script>
+    {% endcomment %}
+    
+    <!-- Super formatação feita pelo professor -->
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %}"> 
+
 
 </head>
 <body>
