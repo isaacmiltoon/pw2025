@@ -115,3 +115,164 @@ class CampusUpdate(UpdateView):
     }
 
 
+class CursoUpdate(UpdateView):
+    model = Curso
+    template_name = 'paginasweb/form.html'
+    fields = ['nome', 'campus']
+    success_url = reverse_lazy('index')
+    extra_context = {
+        'titulo': 'Atualização de dados do Curso',
+        'botao': 'Salvar',
+    }
+
+
+class TipoSolicitacaoUpdate(UpdateView):
+    model = TipoSolicitacao
+    template_name = 'paginasweb/form.html'
+    fields = ['descricao', 'prazo_externo', 'prazo_externo_dias', 'prazo_interno', 'prazo_interno_dias']
+    success_url = reverse_lazy('index')
+    extra_context = {
+        'titulo': 'Atualização de dados do Tipo de Solicitação',
+        'botao': 'Salvar',
+    }
+
+
+class StatusUpdate(UpdateView):
+    model = Status
+    template_name = 'paginasweb/form.html'
+    fields = ['nome', 'ordem', 'pode_editar']
+    success_url = reverse_lazy('index')
+    extra_context = {
+        'titulo': 'Atualização de dados do Status',
+        'botao': 'Salvar',
+    }
+
+
+class AlunoUpdate(UpdateView):
+    model = Aluno
+    template_name = 'paginasweb/form.html'
+    fields = ['nome', 'matrícula', 'cpf', 'email', 'telefone']
+    success_url = reverse_lazy('index')
+    extra_context = {
+        'titulo': 'Atualização de dados do Aluno',
+        'botao': 'Salvar',
+    }
+
+
+class ServidorUpdate(UpdateView):
+    model = Servidor
+    template_name = 'paginasweb/form.html'
+    fields = ['nome', 'siape', 'email']
+    success_url = reverse_lazy('index')
+    extra_context = {
+        'titulo': 'Atualização de dados do Servidor',
+        'botao': 'Salvar',
+    }
+
+
+class SolicitacaoUpdate(UpdateView):
+    model = Solicitacao
+    template_name = 'paginasweb/form.html'
+    fields = ['solicitado_por', 'curso', 'turma', 'tipo_solicitação', 'justificativa']
+    success_url = reverse_lazy('index')
+    extra_context = {
+        'titulo': 'Atualização de dados da Solicitação',
+        'botao': 'Salvar',
+    }
+
+
+class HistoricoUpdate(UpdateView):
+    model = Historico
+    template_name = 'paginasweb/form.html'
+    fields = ['solicitacao', 'status']
+    success_url = reverse_lazy('index')
+    extra_context = {
+        'titulo': 'Atualização de dados do Histórico',
+        'botao': 'Salvar',
+    }
+
+
+##################################################
+
+
+class CampusDelete(DeleteView):
+    model = Campus
+    template_name = 'paginasweb/form.html'
+    success_url = reverse_lazy('index')
+    extra_context = {
+        'titulo': 'Excluir Campus',
+        'botao': 'Excluir',
+    }
+
+
+class CursoDelete(DeleteView):
+    model = Curso
+    template_name = 'paginasweb/form.html'
+    success_url = reverse_lazy('index')
+    extra_context = {
+        'titulo': 'Excluir Curso',
+        'botao': 'Excluir',
+    }
+
+
+class TipoSolicitacaoDelete(DeleteView):
+    model = TipoSolicitacao
+    template_name = 'paginasweb/form.html'
+    success_url = reverse_lazy('index')
+    extra_context = {
+        'titulo': 'Excluir Tipo de Solicitação',
+        'botao': 'Excluir',
+    }
+
+
+class StatusDelete(DeleteView):
+    model = Status
+    template_name = 'paginasweb/form.html'
+    success_url = reverse_lazy('index')
+    extra_context = {
+        'titulo': 'Excluir Status',
+        'botao': 'Excluir',
+    }
+
+
+class AlunoDelete(DeleteView):
+    model = Aluno
+    template_name = 'paginasweb/form.html'
+    success_url = reverse_lazy('index')
+    extra_context = {
+        'titulo': 'Excluir Aluno',
+        'botao': 'Excluir',
+    }
+
+
+class ServidorDelete(DeleteView):
+    model = Servidor
+    template_name = 'paginasweb/form.html'
+    success_url = reverse_lazy('index')
+    extra_context = {
+        'titulo': 'Excluir Servidor',
+        'botao': 'Excluir',
+    }
+
+
+class SolicitacaoDelete(DeleteView):
+    model = Solicitacao
+    template_name = 'paginasweb/form.html'
+    success_url = reverse_lazy('index')
+    extra_context = {
+        'titulo': 'Excluir Solicitação',
+        'botao': 'Excluir',
+    }
+
+
+class HistoricoDelete(DeleteView):
+    model = Historico
+    template_name = 'paginasweb/form.html'
+    success_url = reverse_lazy('index')
+    extra_context = {
+        'titulo': 'Excluir Histórico',
+        'botao': 'Excluir',
+    }
+
+
+

@@ -13,6 +13,15 @@
 
     {{ form.as_p }}
 
+    {% if botao == "Excluir" %}
+    <h4>
+        Deseja excluir o registro: 
+        <span style="color: red;">
+            {{ object }} 
+        </span>
+    </h4>
+    {% endif %}
+
     <button type="submit">{{ botao }}</button>
 
 </form>
