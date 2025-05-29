@@ -5,9 +5,11 @@
 {% block conteudo %}
 <h3>{{titulo}}</h3>
 
-<p>* Campos obrigatórios</p>
+<p class="texto-info">
+    <span>* Campos obrigatórios</span>
+</p>
 
-<form action="" method="post">
+<form action="" method="post" id="form-crud">
 
     {% csrf_token %}
 
