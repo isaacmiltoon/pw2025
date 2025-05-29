@@ -1,0 +1,33 @@
+{% extends "paginasweb/index.html" %}
+
+{% load static %}
+
+{% block conteudo %}
+<h3>Lista de Campus cadastrados</h3>
+
+<table border="1">
+
+    <tr>
+        <th>Nome</th>
+        <th>Cadastrado em</th>
+        <th>Opções</th>
+    </tr>
+
+    {% for obj in object_list %}
+    <tr>
+        <td>{{ obj.nome }}</td>
+        <td>{{ obj.cadastrado_em }}</td>
+        <td>
+            <a href="#">Editar</a>
+            <a href="#">Excluir</a>
+        </td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td colspan="3">Nenhum registro encontrado.</td>
+    </tr>
+    {% endfor %}
+
+</table>
+
+{% endblock %}

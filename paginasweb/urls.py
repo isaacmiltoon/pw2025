@@ -3,6 +3,7 @@ from .views import IndexView, SobreView
 from .views import CampusCreate, CursoCreate, TipoSolicitacaoCreate, StatusCreate, AlunoCreate, ServidorCreate, SolicitacaoCreate, HistoricoCreate
 from .views import CampusUpdate, CursoUpdate, TipoSolicitacaoUpdate, StatusUpdate, AlunoUpdate, ServidorUpdate, SolicitacaoUpdate, HistoricoUpdate
 from .views import CampusDelete, CursoDelete, TipoSolicitacaoDelete, StatusDelete, AlunoDelete, ServidorDelete, SolicitacaoDelete, HistoricoDelete
+from .views import CampusList
 
 urlpatterns = [
     
@@ -42,5 +43,6 @@ urlpatterns = [
     path("excluir/solicitacao/<int:pk>/", SolicitacaoDelete.as_view(), name="excluir-solicitacao"),
     path("excluir/historico/<int:pk>/", HistoricoDelete.as_view(), name="excluir-historico"),  # URL para excluir um histórico
 
+    path("listar/campus/", CampusList.as_view(), name="listar-campus"),
 
 ]
