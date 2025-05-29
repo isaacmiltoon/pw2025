@@ -5,6 +5,12 @@ body, h1, h2, h3, p, ul, li, form, input, select, textarea, button {
     box-sizing: border-box;
 }
 
+h1, h2, h3, h4 {
+    margin-bottom: 20px;
+    border-bottom: solid 1px #CDCDCD;
+    padding-bottom: 3px;
+}
+
 /* Fonte base */
 body {
     font-family: Arial, sans-serif;
@@ -125,4 +131,33 @@ input[type="button"]:hover {
     font-style: italic;
     font-size: 90%;
     margin: 10px 0 20px 0;
+}
+
+/* Tabelas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: #FFFFFF;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #E0E0E0;
+}
+
+th {
+    background-color: #006747;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background-color: #F9F9F9;
+}
+
+tr:hover {
+    background-color: #E0E0E0;
 }
