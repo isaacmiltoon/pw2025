@@ -1,16 +1,24 @@
-{% extends "paginasweb/index.html" %}
-
+{% extends "paginasweb/base.html" %}
 {% load static %}
 
 {% block conteudo %}
-<h3>Sobre</h3>
+<h3>Sobre o Sistema de Agendamento de Consultas Médicas</h3>
 
 <p>
-    A disciplina de <b>Programação para Web</b> tem como objetivo apresentar os conceitos fundamentais 
-    de desenvolvimento web, abrangendo tanto o front-end quanto o back-end. 
-    Os alunos aprenderão a criar páginas web dinâmicas e interativas, utilizando tecnologias como 
-    HTML, CSS, JavaScript e frameworks populares. Além disso, serão introduzidos aos princípios de 
-    design responsivo e acessibilidade, visando garantir que as aplicações sejam funcionais e 
-    agradáveis em diferentes dispositivos e para todos os usuários.
+    Este sistema foi desenvolvido para simplificar e agilizar o processo de agendamento de consultas médicas por meio de uma plataforma web intuitiva. Ele permite que pacientes marquem seus horários de forma prática e rápida, enquanto médicos podem gerenciar suas agendas e acompanhar o histórico de atendimentos com facilidade.
 </p>
+
+<h4>Funcionalidades:</h4>
+<ul>
+    <li>Cadastro de pacientes e médicos</li>
+    <li>Agendamento de consultas</li>
+    <li>Visualização de histórico de consultas</li>
+    <li>Gerenciamento de horários e especialidades</li>
+</ul>
+
+<h4>Diagrama de Caso de Uso</h4>
+<img src="{% static 'img/caso_uso.png' %}" alt="Diagrama de Caso de Uso" width="600">
+
+<h4>Diagrama de Classes</h4>
+<img src="{% static 'img/classes.png' %}" alt="Diagrama de Classes" width="600">
 {% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'paginasweb/base.html' %}
+
+{% block conteudo %}
+    <div class="container">
+        <h2>Lista de Especialidades</h2>
+
+        <!-- Tabela de Especialidades -->
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for especialidade in especialidades %}
+                    <tr>
+                        <td>{{ especialidade.id }}</td>
+                        <td>{{ especialidade.nome }}</td>
+                        <td>
+                        
+                            <a href="{% url 'editar-especialidade' especialidade.id %}" class="btn-editar">Editar</a>
+
+                            <a href="{% url 'excluir-especialidade' especialidade.id %}" class="btn-excluir">Excluir</a>
+                        </td>
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <td colspan="3">Nenhuma especialidade cadastrada.</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+            
+        </table>
+
+        <a href="{% url 'cadastrar-especialidade' %}">Cadastrar nova especialidade</a>
+    </div>
+{% endblock %}

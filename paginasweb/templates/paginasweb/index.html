@@ -1,57 +1,35 @@
-{% load static %}
+{% extends "paginasweb/base.html" %}
+{% block titulo %}Página Inicial - Sistema de Agendamento{% endblock %}
 
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    {% block titulo %}
-    <title>Página Inicial</title>
-    {% endblock titulo %}
+{% block conteudo %}
+<div id="pagina-inicial">
+    <h3>Página inicial</h3>
+    <p>Bem-vindo ao sistema de agendamento de consultas médicas.</p>
+    <p>Use o botão abaixo para acessar as funcionalidades.</p>
 
-    <!-- Formatação do site com o Claude -- gerado por IA -->
-    {% comment %} 
-    <link rel="stylesheet" href="{% static 'css/estilo_gpt.css' %}">
-    <script src="{% static "js/menu.js" %}"></script>
-    {% endcomment %}
-    
-    <!-- Super formatação feita pelo professor -->
-    <link rel="stylesheet" href="{% static 'css/estilo.css' %}"> 
+    <button id="acessar-funcionalidades" style="margin-top: 20px;">Acessar Funcionalidades</button>
+</div>
 
+<ul id="submenu-inicio" style="display: none; flex-direction: column; align-items: center; margin-top: 40px;">
+    <li><a href="{% url 'cadastrar-especialidade' %}">Cadastrar Especialidade</a></li>
+    <li><a href="{% url 'listar-especialidade' %}">Listar Especialidades</a></li>
+    <li><a href="{% url 'cadastrar-medico' %}">Cadastrar Médico</a></li>
+    <li><a href="{% url 'listar-medico' %}">Listar Médicos</a></li>
+    <li><a href="{% url 'cadastrar-paciente' %}">Cadastrar Paciente</a></li>
+    <li><a href="{% url 'listar-paciente' %}">Listar Pacientes</a></li>
+    <li><a href="{% url 'cadastrar-consulta' %}">Agendar Consulta</a></li>
+    <li><a href="{% url 'listar-consulta' %}">Listar Consultas</a></li>
+</ul>
 
-</head>
-<body>
-
-    <ul id="menu">
-        <li><a href="{% url "index" %}">Início</a></li>
-        <li><a href="{% url "sobre" %}">Sobre nós</a></li>
-
-        <li><a href="{% url "cadastrar-campus" %}">Campus</a></li>
-        <li><a href="{% url "cadastrar-curso" %}">Curso</a></li>
-        <li><a href="{% url "cadastrar-tipo-solicitacao" %}">Tipo Solicitação</a></li>
-        <li><a href="{% url "cadastrar-status" %}">Status</a></li>
-        <li><a href="{% url "cadastrar-aluno" %}">Aluno</a></li>
-        <li><a href="{% url "cadastrar-servidor" %}">Servidor</a></li>
-        <li><a href="{% url "cadastrar-solicitacao" %}">Solicitação</a></li>
-        <li><a href="{% url "cadastrar-historico" %}">Histórico</a></li>
-
-    </ul>
-
-    <div id="conteudo">
-        {% block conteudo %}
-
-        <h3>Página inicial</h3>
-        
-        <p>Bem vindos a página inicial de Programação Web</p>
-        
-        {%  endblock  %}
-    </div>
-
-
-    <div id="rodape">
-        Desenvolvido por Rafael Zottesso
-    </div>
-    
-</body>
-</html>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const btn = document.getElementById('acessar-funcionalidades');
+        if (btn) {
+            btn.addEventListener('click', function () {
+                document.getElementById('pagina-inicial').style.display = 'none';
+                document.getElementById('submenu-inicio').style.display = 'flex';
+            });
+        }
+    });
+</script>
+{% endblock %}
