@@ -8,7 +8,28 @@ from .views import (
     editar_especialidade, excluir_especialidade
 )
 
+from django.contrib.auth import views as auth_views
+
 urlpatterns = [
+
+
+    path("autenticar/" , auth_views.LoginView.as_view(
+        template_name= 'paginasweb/forms.html',
+        extra_context = {
+            'titulo' : "Autenticação",
+            'botão' : 'Entrar' ,
+        }
+        ), name="autenticar"),
+
+        path("senha/" , auth_views.PasswordChangeView.as_view(
+        template_name= 'paginasweb/forms.html',
+        extra_context = {
+            'titulo' : "Atualizar senha",
+            'botão' : 'Salvar' ,
+        }
+        ), name="senha"),
+
+    path("logout/", auth_views.LogoutView.as_view(), name="logout"),
     path('', index, name='index'),
     path('sobre/', sobre, name='sobre'),
     path('especialidade/cadastrar/', EspecialidadeCreate.as_view(), name='cadastrar-especialidade'),

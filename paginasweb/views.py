@@ -4,6 +4,9 @@ from django.shortcuts import get_object_or_404, redirect
 from .models import Especialidade, Medico, Paciente, Consulta
 from .forms import EspecialidadeForm  
 
+from django.contrib.auth.mixins import LoginRequiredMixin
+
+
 
 def index(request):
     return render(request, 'paginasweb/index.html')
@@ -17,7 +20,7 @@ def editar_especialidade(request, id):
         form = EspecialidadeForm(request.POST, instance=especialidade)
         if form.is_valid():
             form.save()
-            return redirect('listar-especialidade')  # Redireciona para a lista de especialidades
+            return redirect('listar-especialidade') 
     else:
         form = EspecialidadeForm(instance=especialidade)
 
@@ -33,7 +36,7 @@ def excluir_especialidade(request, pk):
     
     return render(request, 'paginasweb/confirmar_exclusao.html', {'especialidade': especialidade})
 
-class EspecialidadeCreate(CreateView):
+class EspecialidadeCreate(LoginRequiredMixin, CreateView):
     model = Especialidade
     fields = ['nome']  
     template_name = 'paginasweb/forms.html'
@@ -41,10 +44,10 @@ class EspecialidadeCreate(CreateView):
 
 class EspecialidadeList(ListView):
     model = Especialidade
-    template_name = 'paginasweb/especialidade.html'  # Verifique se o nome do template está correto
-    context_object_name = 'especialidades'  # Isso passa a lista de especialidades para o template
+    template_name = 'paginasweb/especialidade.html'  
+    context_object_name = 'especialidades'  
 
-class MedicoCreate(CreateView):
+class MedicoCreate(LoginRequiredMixin, CreateView):
     model = Medico
     fields = ['nome', 'crm', 'especialidade']  
     template_name = 'paginasweb/forms.html'
@@ -55,7 +58,7 @@ class MedicoList(ListView):
     template_name = 'paginasweb/medico.html'
     context_object_name = 'medicos'
 
-class PacienteCreate(CreateView):
+class PacienteCreate(LoginRequiredMixin, CreateView):
     model = Paciente
     fields = ['nome', 'email', 'telefone', 'cpf']
     template_name = 'paginasweb/forms.html'
@@ -66,7 +69,7 @@ class PacienteList(ListView):
     template_name = 'paginasweb/paciente.html'
     context_object_name = 'pacientes'
 
-class ConsultaCreate(CreateView):
+class ConsultaCreate(LoginRequiredMixin, CreateView):
     model = Consulta
     fields = ['paciente', 'medico', 'data', 'hora', 'observacoes', 'status']
     template_name = 'paginasweb/forms.html'

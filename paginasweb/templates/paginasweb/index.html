@@ -10,15 +10,34 @@
     <button id="acessar-funcionalidades" style="margin-top: 20px;">Acessar Funcionalidades</button>
 </div>
 
+    
 <ul id="submenu-inicio" style="display: none; flex-direction: column; align-items: center; margin-top: 40px;">
+
+    {% if request.user.is_authenticated %}
     <li><a href="{% url 'cadastrar-especialidade' %}">Cadastrar Especialidade</a></li>
-    <li><a href="{% url 'listar-especialidade' %}">Listar Especialidades</a></li>
     <li><a href="{% url 'cadastrar-medico' %}">Cadastrar Médico</a></li>
+    {% endif %}
+
     <li><a href="{% url 'listar-medico' %}">Listar Médicos</a></li>
+
+    {% if request.user.is_authenticated %}
     <li><a href="{% url 'cadastrar-paciente' %}">Cadastrar Paciente</a></li>
+    {% endif %}
+
     <li><a href="{% url 'listar-paciente' %}">Listar Pacientes</a></li>
+
+    {% if request.user.is_authenticated %}
     <li><a href="{% url 'cadastrar-consulta' %}">Agendar Consulta</a></li>
+    {% endif %}
+
     <li><a href="{% url 'listar-consulta' %}">Listar Consultas</a></li>
+    
+    {% if not request.user.is_authenticated %}
+    <li><a href="{% url "autenticar" %}">Entrar</a> </li>
+    {% else %}
+    <li><a href="{% url "logout" %}">Sair</a> </li>
+    {% endif %}
+
 </ul>
 
 <script>
@@ -32,4 +51,5 @@
         }
     });
 </script>
+
 {% endblock %}
