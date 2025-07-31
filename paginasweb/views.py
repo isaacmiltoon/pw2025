@@ -60,7 +60,7 @@ class MedicoList(ListView):
 
 class PacienteCreate(LoginRequiredMixin, CreateView):
     model = Paciente
-    fields = ['nome', 'email', 'telefone', 'cpf']
+    fields = ['nome', 'telefone', 'cpf']
     template_name = 'paginasweb/forms.html'
     success_url = '/paciente/listar/'
 
