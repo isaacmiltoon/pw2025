@@ -1,4 +1,6 @@
 from django.urls import path
+from .views import CadastroUsuarioView
+
 from .views import (
     index, sobre,
     EspecialidadeCreate, EspecialidadeList,
@@ -10,9 +12,10 @@ from .views import (
 
 from django.contrib.auth import views as auth_views
 
+
 urlpatterns = [
 
-
+    path("registrar/", CadastroUsuarioView.as_view(), name="registrar"),    
     path("autenticar/" , auth_views.LoginView.as_view(
         template_name= 'paginasweb/forms.html',
         extra_context = {
