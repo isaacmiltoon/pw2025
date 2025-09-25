@@ -124,10 +124,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
-
-STATICFILES_DIRS = [
-    BASE_DIR / 'static', # Configura o diretório de arquivos estáticos que fica na raiz do projeto
-]
+STATICFILES_DIRS = [ BASE_DIR / 'static',] # Configura o diretório de arquivos estáticos que fica na raiz do projeto
+STATIC_ROOT = 'static_gcloud/' # Alterar essa configuração
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
