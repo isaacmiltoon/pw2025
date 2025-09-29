@@ -80,13 +80,22 @@ DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
         "NAME": "postgres",
-        "USER": "postgres.qyllqcbxnxzgvbhixzwx",
-        "PASSWORD": "DbGW0X2Kni1IEPA2",
-        "HOST": "aws-0-sa-east-1.pooler.supabase.com",
+        "USER": "postgres.orzstjzornvrearmagst",
+        "PASSWORD": "GV8o8o291w1hUv8x",
+        "HOST": "aws-1-sa-east-1.pooler.supabase.com",
         "PORT": "5432",
     }
 }
-
+#DATABASES = {
+#    "default": {
+#        "ENGINE": "django.db.backends.postgresql",
+#       "NAME": "postgres",
+#        "USER": "postgres.qyllqcbxnxzgvbhixzwx",
+#        "PASSWORD": "DbGW0X2Kni1IEPA2",
+#        "HOST": "aws-0-sa-east-1.pooler.supabase.com",
+#        "PORT": "5432",
+#    }
+#}
 
 
 # Password validation
