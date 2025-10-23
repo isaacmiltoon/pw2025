@@ -7,7 +7,8 @@ from .views import (
     MedicoCreate, MedicoList,
     PacienteCreate, PacienteList,
     ConsultaCreate, ConsultaList,
-    editar_especialidade, excluir_especialidade
+    editar_especialidade, excluir_especialidade,
+    MedicoUpdate, MedicoDelete
 )
 
 from django.contrib.auth import views as auth_views
@@ -45,4 +46,6 @@ urlpatterns = [
     path('consulta/listar/', ConsultaList.as_view(), name='listar-consulta'),
     path('editar-especialidade/<int:id>/', editar_especialidade, name='editar-especialidade'),
     path('excluir-especialidade/<int:pk>/', excluir_especialidade, name='excluir-especialidade'),
+    path('medico/editar/<int:pk>/', MedicoUpdate.as_view(), name='editar-medico'),
+    path('medico/excluir/<int:pk>/', MedicoDelete.as_view(), name='excluir-medico'),
 ]

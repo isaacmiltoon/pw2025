@@ -1,0 +1,39 @@
+{% extends 'paginasweb/base.html' %}
+
+{% block conteudo %}
+<div class="container">
+    <h2>Lista de Médicos</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>CRM</th>
+                <th>Especialidade</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for medico in medicos %}
+            <tr>
+                <td>{{ medico.id }}</td>
+                <td>{{ medico.nome }}</td>
+                <td>{{ medico.crm }}</td>
+                <td>{{ medico.especialidade.nome }}</td>
+                <td>
+                    <form action="{% url 'excluir-medico' medico.id %}" method="post" style="display:inline;">
+                        {% csrf_token %}
+                        <button type="submit" class="btn-excluir" onclick="return confirm('Tem certeza que deseja excluir este médico?');">Excluir</button>
+                    </form>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="5">Nenhum médico cadastrado.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'cadastrar-medico' %}">Cadastrar novo médico</a>
+</div>
+{% endblock %}

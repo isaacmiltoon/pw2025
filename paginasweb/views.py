@@ -1,4 +1,23 @@
-from django.views.generic import CreateView, ListView
+from django.views.generic import CreateView, ListView, UpdateView, DeleteView
+from django.shortcuts import render
+from django.shortcuts import get_object_or_404, redirect
+from .models import Especialidade, Medico, Paciente, Consulta
+from .forms import EspecialidadeForm  
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.models import User, Group
+from .forms import UsuarioCadastroForm
+from django.urls import reverse_lazy
+
+class PacienteDelete(LoginRequiredMixin, DeleteView):
+    model = Paciente
+    template_name = 'paginasweb/confirmar_exclusao.html'
+    success_url = '/paciente/listar/'
+
+class ConsultaDelete(LoginRequiredMixin, DeleteView):
+    model = Consulta
+    template_name = 'paginasweb/confirmar_exclusao.html'
+    success_url = '/consulta/listar/'
+from django.views.generic import CreateView, ListView, UpdateView, DeleteView
 from django.shortcuts import render
 from django.shortcuts import get_object_or_404, redirect
 from .models import Especialidade, Medico, Paciente, Consulta
@@ -77,10 +96,24 @@ class MedicoCreate(LoginRequiredMixin, CreateView):
     template_name = 'paginasweb/forms.html'
     success_url = '/medico/listar/'
 
+
 class MedicoList(ListView):
     model = Medico
     template_name = 'paginasweb/medico.html'
     context_object_name = 'medicos'
+
+from django.views.generic import UpdateView, DeleteView
+
+class MedicoUpdate(LoginRequiredMixin, UpdateView):
+    model = Medico
+    fields = ['nome', 'crm', 'especialidade']
+    template_name = 'paginasweb/forms.html'
+    success_url = '/medico/listar/'
+
+class MedicoDelete(LoginRequiredMixin, DeleteView):
+    model = Medico
+    template_name = 'paginasweb/confirmar_exclusao.html'
+    success_url = '/medico/listar/'
 
 class PacienteCreate(LoginRequiredMixin, CreateView):
     model = Paciente
