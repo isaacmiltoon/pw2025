@@ -16,6 +16,21 @@
         </li>
         <li><a href="{% url 'index' %}">Início</a></li>
         <li><a href="{% url 'sobre' %}">Sobre nós</a></li>
+        {% if request.user.is_authenticated %}
+            <li><a href="{% url 'listar-medico' %}">Meus Médicos</a></li>
+            <li><a href="{% url 'listar-paciente' %}">Meus Pacientes</a></li>
+            <li><a href="{% url 'listar-consulta' %}">Minhas Consultas</a></li>
+            <li><a href="{% url 'senha' %}">Alterar senha</a></li>
+            <li>
+                <form action="{% url 'logout' %}" method="post" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit" style="background:none;border:none;padding:0;color:#007bff;cursor:pointer;text-decoration:underline;">Sair</button>
+                </form>
+            </li>
+        {% else %}
+            <li><a href="{% url 'autenticar' %}">Entrar</a></li>
+            <li><a href="{% url 'registrar' %}">Registrar</a></li>
+        {% endif %}
     </ul>
 
     <div id="conteudo">

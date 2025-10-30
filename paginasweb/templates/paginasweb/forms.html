@@ -1,9 +1,9 @@
-{% extends "paginasweb/index.html" %}
+{% extends "paginasweb/base.html" %}
 
 {% load static %}
 
 {% block conteudo %}
-<h3>{{titulo}}</h3>
+<h3>{{ titulo }}</h3>
 
 <p class="texto-info">
     <span>* Campos obrigatórios</span>
@@ -24,7 +24,7 @@
     </h4>
     {% endif %}
 
-    <button type="submit">{{ botao }}</button>
+    <button type="submit">{{ botao|default:"Salvar" }}</button>
 
 </form>
 

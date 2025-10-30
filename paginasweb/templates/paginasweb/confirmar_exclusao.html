@@ -4,14 +4,13 @@
     <div class="container">
         <div class="confirm-exclusao">
             <h2>Tem certeza que deseja excluir?</h2>
-            <p>Você está prestes a excluir a especialidade "<strong>{{ especialidade.nome }}</strong>". Esta ação não pode ser desfeita.</p>
+            <p>Você está prestes a excluir: <strong>{{ object }}</strong>. Esta ação não pode ser desfeita.</p>
 
-            <!-- Formulário de confirmação -->
             <form method="post" class="form-confirm">
                 {% csrf_token %}
                 <div class="buttons">
                     <button type="submit" class="btn-confirm">Sim, excluir</button>
-                    <a href="{% url 'listar-especialidade' %}" class="btn-cancel">Cancelar</a>
+                    <a href="{% url 'index' %}" class="btn-cancel">Cancelar</a>
                 </div>
             </form>
         </div>

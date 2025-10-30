@@ -21,6 +21,7 @@
                 <td>{{ paciente.telefone }}</td>
                 <td>{{ paciente.cpf }}</td>
                 <td>
+                    <a href="{% url 'editar-paciente' paciente.id %}" class="btn-editar">Editar</a>
                     <form action="{% url 'excluir-paciente' paciente.id %}" method="post" style="display:inline;">
                         {% csrf_token %}
                         <button type="submit" class="btn-excluir" onclick="return confirm('Tem certeza que deseja excluir este paciente?');">Excluir</button>
